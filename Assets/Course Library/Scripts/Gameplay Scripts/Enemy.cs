@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(spawnManager.isGameActive && !spawnManager.isGamePaused)
+        if(spawnManager.isGameActive && !spawnManager.isGamePaused) //Track towards the player constantly.
         {
             // ".normalized" keeps speed the same across any distance
             Vector3 lookDirection = (player.transform.position - transform.position).normalized;
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         AddPointsIfActive();
     }
 
-    public void AddPointsIfActive()
+    public void AddPointsIfActive() //Add points for each enemy that falls off the level.
     {
         if(spawnManager.isGameActive)
         {

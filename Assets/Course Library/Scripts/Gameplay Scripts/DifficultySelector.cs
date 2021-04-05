@@ -3,11 +3,10 @@ using UnityEngine.UI;
 
 public class DifficultySelector : MonoBehaviour
 {
-
     public int difficulty;
     public float nukeSpawnChance = 0.9f;
     private SpawnManager spawnManager;
-    private Button button;
+    [SerializeField] Button button;
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +17,10 @@ public class DifficultySelector : MonoBehaviour
         button.onClick.AddListener(SetDifficulty);
     }
 
-    void SetDifficulty()
+    void SetDifficulty() //Parse the difficulty value to modify the game, based on the selected difficulty.
     {
         spawnManager.StartGame(difficulty);
-        spawnManager.NukeSpawn(difficulty);
-        spawnManager.BossSpawn(difficulty);
+        spawnManager.DifficultyModifier(difficulty);
         
         Debug.Log(button.gameObject.name + " was clicked");
     }

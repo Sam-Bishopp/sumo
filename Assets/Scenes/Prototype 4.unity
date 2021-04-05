@@ -747,6 +747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 2
   nukeSpawnChance: 0
+  button: {fileID: 0}
 --- !u!1 &126190334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,6 +1347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmMixer: {fileID: 24100000, guid: bf6d5ab74b88c6e489dddf332b9d81be, type: 2}
+  bgmSlider: {fileID: 210264874}
 --- !u!1 &220876476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,7 +2544,7 @@ GameObject:
   - component: {fileID: 478599639}
   - component: {fileID: 478599638}
   m_Layer: 5
-  m_Name: Reset High Score & Round Menu
+  m_Name: Reset High Score, Round & Time Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2722,7 +2724,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NieR Soundtrack 3
+  m_Text: Soundtrack 3
 --- !u!222 &481515209
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3958,7 +3960,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reset High Score & Round
+  m_Text: Reset High Score, Time & Round
 --- !u!222 &705100875
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4410,7 +4412,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Reasons for Game Over Events:'
+  m_Text: 'Stats for Game Over Events:'
 --- !u!222 &730039967
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4831,7 +4833,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Highest Round, Score & Time
+  m_Text: 'Highest Round, Score & Time:'
 --- !u!222 &819498195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5495,6 +5497,7 @@ GameObject:
   - component: {fileID: 910813835}
   - component: {fileID: 910813834}
   - component: {fileID: 910813833}
+  - component: {fileID: 910813836}
   m_Layer: 5
   m_Name: Music 4
   m_TagString: Untagged
@@ -5632,6 +5635,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910813831}
   m_CullTransparentMesh: 0
+--- !u!114 &910813836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910813831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d425228d8cece94f99e4c62e8f7d0b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundtrackSelection: 4
+  button: {fileID: 910813833}
 --- !u!1 &912726102
 GameObject:
   m_ObjectHideFlags: 0
@@ -5716,6 +5733,7 @@ GameObject:
   - component: {fileID: 916891218}
   - component: {fileID: 916891217}
   - component: {fileID: 916891216}
+  - component: {fileID: 916891219}
   m_Layer: 5
   m_Name: Music 3
   m_TagString: Untagged
@@ -5853,6 +5871,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916891214}
   m_CullTransparentMesh: 0
+--- !u!114 &916891219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916891214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d425228d8cece94f99e4c62e8f7d0b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundtrackSelection: 3
+  button: {fileID: 916891216}
 --- !u!1 &931874520
 GameObject:
   m_ObjectHideFlags: 0
@@ -5940,7 +5972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 936502018}
   m_Layer: 5
-  m_Name: High Score & Round Reset Confirm
+  m_Name: High Score, Round & Time Reset Confirm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6339,7 +6371,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NieR Soundtrack 2
+  m_Text: Soundtrack 2
 --- !u!222 &1051063362
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6715,6 +6747,7 @@ GameObject:
   - component: {fileID: 1162388542}
   - component: {fileID: 1162388541}
   - component: {fileID: 1162388540}
+  - component: {fileID: 1162388543}
   m_Layer: 5
   m_Name: Music 1
   m_TagString: Untagged
@@ -6852,6 +6885,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162388538}
   m_CullTransparentMesh: 0
+--- !u!114 &1162388543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162388538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d425228d8cece94f99e4c62e8f7d0b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundtrackSelection: 1
+  button: {fileID: 1162388540}
 --- !u!1 &1181730908
 GameObject:
   m_ObjectHideFlags: 0
@@ -7579,7 +7626,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NieR Soundtrack 4
+  m_Text: Soundtrack 4
 --- !u!222 &1312082455
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8068,7 +8115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1382431204}
   m_Layer: 5
-  m_Name: High Score Reset Warning
+  m_Name: High Score, Round & Time Reset Warning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8196,6 +8243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1428722107}
   - component: {fileID: 1428722106}
+  - component: {fileID: 1428722108}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -8218,16 +8266,12 @@ MonoBehaviour:
   BGM: {fileID: 1211419929}
   ingameMusic: {fileID: 0}
   nierMM1: {fileID: 8300000, guid: 2b1c7f5d9da462047958b690e245acea, type: 3}
-  nierMM2: {fileID: 8300000, guid: 76cfb5bd03788e64cb315c60e3b983b3, type: 3}
-  nierGameplay1: {fileID: 8300000, guid: d58748f53c04e9944bc1b4a98827c4f8, type: 3}
-  nierGameplay2: {fileID: 8300000, guid: f228e06c1cb104346b16ee1c311f02d5, type: 3}
+  nierGameplay1: {fileID: 8300000, guid: f228e06c1cb104346b16ee1c311f02d5, type: 3}
+  nierGameplay2: {fileID: 8300000, guid: d58748f53c04e9944bc1b4a98827c4f8, type: 3}
   nierGameplay3: {fileID: 8300000, guid: 9c3190f30202d3b4e9be2e7c7d594519, type: 3}
   nierGameplay4: {fileID: 8300000, guid: 719c8c2fce6808d4b8470408707d88a8, type: 3}
   psychoPassGO1: {fileID: 8300000, guid: 2fa472f3f26d94447b19b57d8a07911c, type: 3}
-  psychoPassGO2: {fileID: 8300000, guid: 897d182209f231b46a73fc32cf8468d1, type: 3}
-  nierGO1: {fileID: 8300000, guid: 33a832ea2c42a38439107ddad8e28d92, type: 3}
-  nierGO2: {fileID: 8300000, guid: cd39461733cc9e841806594232a6d51e, type: 3}
-  fullmetalGO1: {fileID: 8300000, guid: 0b306cb871f93454bbe8bd114799a4b5, type: 3}
+  soundtrackPreference: 0
 --- !u!4 &1428722107
 Transform:
   m_ObjectHideFlags: 0
@@ -8242,6 +8286,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1428722108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428722105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1aa6dde778bb24e963c20b3f943442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmMixer: {fileID: 24100000, guid: bf6d5ab74b88c6e489dddf332b9d81be, type: 2}
+  bgmSlider: {fileID: 210264874}
 --- !u!1 &1447164982
 GameObject:
   m_ObjectHideFlags: 0
@@ -9352,6 +9410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 1
   nukeSpawnChance: 0
+  button: {fileID: 0}
 --- !u!114 &1589942858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9648,6 +9707,7 @@ GameObject:
   - component: {fileID: 1630240835}
   - component: {fileID: 1630240834}
   - component: {fileID: 1630240833}
+  - component: {fileID: 1630240836}
   m_Layer: 5
   m_Name: Music 2
   m_TagString: Untagged
@@ -9785,6 +9845,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630240831}
   m_CullTransparentMesh: 0
+--- !u!114 &1630240836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630240831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d425228d8cece94f99e4c62e8f7d0b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundtrackSelection: 2
+  button: {fileID: 1630240833}
 --- !u!1 &1636800883
 GameObject:
   m_ObjectHideFlags: 0
@@ -10145,6 +10219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 3
   nukeSpawnChance: 0
+  button: {fileID: 0}
 --- !u!1 &1684886411
 GameObject:
   m_ObjectHideFlags: 0
@@ -10274,6 +10349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 4
   nukeSpawnChance: 0
+  button: {fileID: 0}
 --- !u!1 &1693288116
 GameObject:
   m_ObjectHideFlags: 0
@@ -11266,8 +11342,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Choosing to reset the high score & round is irreversible. \nDo you still
-    wish to reset?"
+  m_text: "Choosing to reset the high score, round & time is irreversible. \nDo you
+    still wish to reset?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11947,7 +12023,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NieR Soundtrack 1
+  m_Text: Soundtrack 1
 --- !u!222 &2089870173
 CanvasRenderer:
   m_ObjectHideFlags: 0

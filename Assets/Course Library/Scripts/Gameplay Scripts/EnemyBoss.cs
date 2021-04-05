@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyBoss : MonoBehaviour
 {
@@ -20,22 +18,17 @@ public class EnemyBoss : MonoBehaviour
         enemyBossRb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
         spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
-        
-        //Instantiate(bossPowerupIndicator, transform.position, transform.rotation);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(spawnManager.isGameActive && !spawnManager.isGamePaused)
+        if(spawnManager.isGameActive && !spawnManager.isGamePaused) //Track towards the player constantly.
         {
             // ".normalized" keeps speed the same across any distance
             Vector3 lookDirection = (player.transform.position - transform.position).normalized;
             enemyBossRb.AddForce(lookDirection * speed);
         }
-
-        /*Vector3 indicatorOffset = new Vector3(0, -0.4f, 0);
-        bossPowerupIndicator.transform.position = transform.position + indicatorOffset;*/ 
 
         if(transform.position.y < despawnLimit)
         {
@@ -45,7 +38,7 @@ public class EnemyBoss : MonoBehaviour
         AddPointsIfActive();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision) //Increase force upon collision with player.
     {
         if(collision.gameObject.CompareTag("Player"))
         {
@@ -58,7 +51,7 @@ public class EnemyBoss : MonoBehaviour
         }
     }
 
-    public void AddPointsIfActive()
+    public void AddPointsIfActive() //Add points for each boss that falls off the level.
     {
         if(spawnManager.isGameActive)
         {

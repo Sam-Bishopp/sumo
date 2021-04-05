@@ -59,7 +59,6 @@ public class SpawnManager : MonoBehaviour
     public int fallenOffLevelInt;
     public int samePlaceInt;
     public int manualQuitInt;
-    //public float timeSurvivedFloat;
 
     //Enemy spawn & increment
     private float spawnRange = 9; //Axis range within playarea
@@ -69,14 +68,14 @@ public class SpawnManager : MonoBehaviour
     //Wave numbers
     private int actualWaveNumber = 1;
     private int waveNumber = 1;
-    private int lastWaveNumber; //I don't think this used???
+    private int lastWaveNumber;
     
     public int baseWaveOverBonus = 25;
     public int difficultyBonus;
     private int score;
     private float timeSurvived = 0;
 
-    [SerializeField] int selectedDifficulty; //don't think this is used
+    [SerializeField] int selectedDifficulty;
     [SerializeField] int bossSpawnDifficulty;
     public float nukeSpawnChance;
     public float bossSpawnChance;
@@ -134,12 +133,12 @@ public class SpawnManager : MonoBehaviour
             waveOver = true;
             UpdateScore(difficultyBonus);
 
-            lastWaveNumber = waveNumber; //idk what this does tbh
+            lastWaveNumber = waveNumber;
             actualWaveNumber++;
             HighestRound();
 
             waveNumber++;
-            waveNumber += selectedDifficulty; //don't think this is used
+            waveNumber += selectedDifficulty;
 
             waveOverBonusText.text = "Wave Over Bonus: +" + difficultyBonus;
             waveOverBonusText.gameObject.SetActive(true);
@@ -175,7 +174,7 @@ public class SpawnManager : MonoBehaviour
         scoreText.text = "Score: " + score;
         UpdateScore(0);
 
-        //If the user doesn't choose a song, play a default song. Otherwise, play their choice.
+        //If the user doesn't choose a song, play the default song. Otherwise, play their choice.
         if(audioManager.ingameMusic == null)
         { 
             audioManager.ChangeBGM(audioManager.nierGameplay1); 
@@ -193,28 +192,38 @@ public class SpawnManager : MonoBehaviour
         SpawnEnemyWave(waveNumber + difficulty);                          
     }
 
-    public void NukeSpawn(int difficulty) //Depending on the difficulty selected, nukes have a different % chance to spawn.
+    public void DifficultyModifier(int difficulty)
     {
+        bossSpawnDifficulty = difficulty;
+
         switch(difficulty)
         {
             case 1: //Easy Difficulty
                 nukeSpawnChance = 0.4f;
+                bossSpawnChance = 0.1f;
                 Debug.Log("Nuke spawn chance = " + nukeSpawnChance * 100 + "%");
+                Debug.Log("Boss spawn chance = " + bossSpawnChance * 100 + "%");
                 break;
             
             case 2: //Normal Difficulty
                 nukeSpawnChance = 0.25f;
+                bossSpawnChance = 0.2f;
                 Debug.Log("Nuke spawn chance = " + nukeSpawnChance * 100 + "%");
+                Debug.Log("Boss spawn chance = " + bossSpawnChance * 100 + "%");
                 break;
             
             case 3: //Hard Difficulty
                 nukeSpawnChance = 0.2f;
+                bossSpawnChance = 0.3f;
                 Debug.Log("Nuke spawn chance = " + nukeSpawnChance * 100 + "%");
+                Debug.Log("Boss spawn chance = " + bossSpawnChance * 100 + "%");
                 break;
             
             case 4: //Insane Difficulty
                 nukeSpawnChance = 0.1f;
+                bossSpawnChance = 0.4f;
                 Debug.Log("Nuke spawn chance = " + nukeSpawnChance * 100 + "%");
+                Debug.Log("Boss spawn chance = " + bossSpawnChance * 100 + "%");
                 break;
             
             default:
@@ -224,40 +233,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    public void BossSpawn(int difficulty) //Depending on the difficulty selected, nukes have a different % chance to spawn.
-    {
-        bossSpawnDifficulty = difficulty;
-
-        switch(difficulty)
-        {
-            case 1: //Easy Difficulty
-                bossSpawnChance = 0.1f;
-                Debug.Log("Boss spawn chance = " + bossSpawnChance * 100 + "%");
-                break;
-            
-            case 2: //Normal Difficulty
-                bossSpawnChance = 0.2f;
-                Debug.Log("Boss spawn chance = " + bossSpawnChance * 100 + "%");
-                break;
-            
-            case 3: //Hard Difficulty
-                bossSpawnChance = 0.3f;
-                Debug.Log("Boss spawn chance = " + bossSpawnChance * 100 + "%");
-                break;
-            
-            case 4: //Insane Difficulty
-                bossSpawnChance = 0.4f;
-                Debug.Log("Boss spawn chance = " + bossSpawnChance * 100 + "%");
-                break;
-            
-            default:
-                bossSpawnChance = 0.2f;
-                Debug.Log("A difficulty was not selected somehow. Boss spawn chance set to " + bossSpawnChance * 100 + "%");
-                break;
-        }
-    }
-
-    public void IncreaseBossSpawn()
+    public void IncreaseBossSpawn() //Amount of bosses & frequency of boss spawns increases.
     {
         if(actualWaveNumber <= 9)
         {
@@ -311,7 +287,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    public void HighestRound()
+    public void HighestRound() //The highest round the player has achieved
     {
         if(actualWaveNumber > PlayerPrefs.GetInt("HighestRound", 0))
         {
@@ -320,7 +296,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    public void TimeSurvived()
+    public void TimeSurvived() //How long the player has survived
     {
         timeSurvived += Time.deltaTime;
 
@@ -337,10 +313,11 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    public void ResetScoreAndRound() //Function to reset the high score stored.
+    public void ResetScoreAndRound() //Function to reset the high score, highest round & longest time stored.
     {
         PlayerPrefs.DeleteKey("HighScore");
         PlayerPrefs.DeleteKey("HighestRound");
+        PlayerPrefs.DeleteKey("LongestTime");
 
         highScoreResetMenu.gameObject.SetActive(false);
         optionsMenu.gameObject.SetActive(true);
@@ -349,7 +326,7 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(ResetScoreAndRoundConfirm());
     }
 
-    public void ResetAllStats()
+    public void ResetAllStats() //Resets all statistics saved in PlayerPrefs
     {
         PlayerPrefs.DeleteAll();
 
@@ -413,7 +390,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    public void GameOver() // Triggers the game over sequence
+    public void GameOver() //Triggers the game over sequence
     {
         isGameActive = false;
         Time.timeScale = 1;
@@ -432,7 +409,7 @@ public class SpawnManager : MonoBehaviour
         endGameScreen.gameObject.SetActive(true);
     }
 
-    public void GameOverByMenu()
+    public void GameOverByMenu() //User ends the game by clicking the end game button
     {
         playerEndedReason.gameObject.SetActive(true);
 
